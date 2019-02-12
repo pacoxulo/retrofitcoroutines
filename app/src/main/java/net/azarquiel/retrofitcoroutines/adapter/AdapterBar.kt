@@ -15,8 +15,8 @@ class CustomAdapter(val context: Context,
                     val layout: Int
                     ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    private var dataList: List<Bar> = emptyList()
-
+    private var dataList: List<Bar> =
+    emptyList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val viewlayout = layoutInflater.inflate(layout, parent, false)
@@ -32,8 +32,8 @@ class CustomAdapter(val context: Context,
         return dataList.size
     }
 
-    internal fun setBares(pajaros: List<Bar>) {
-        this.dataList = pajaros
+    internal fun setBares(bares: List<Bar>) {
+        this.dataList = bares
         notifyDataSetChanged()
     }
 

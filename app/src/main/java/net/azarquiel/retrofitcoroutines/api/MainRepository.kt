@@ -12,6 +12,7 @@ import net.azarquiel.retrofitcoroutines.model.Bar
  */
 
 class MainRepository(application: Application) {
+
     val service = WebAccess.barService
 
     fun getDataBares(): MutableLiveData<List<Bar>> {
@@ -34,7 +35,7 @@ class MainRepository(application: Application) {
         GlobalScope.launch(Dispatchers.Main) {
             val webResponse = service.saveBar(nombrebar, direccion, municipio, provincia).await()
             if (webResponse.isSuccessful) {
-                val bar = webResponse.body()!!.bar
+                bar = webResponse.body()!!.bar
             }
         }
         return bar

@@ -53,6 +53,11 @@ interface BarService {
 
     // post con variables sueltas
     @FormUrlEncoded
+    @POST("usuario")
+    fun saveUsuario(@Field("nick") nick:String,
+                    @Field("pass") pass:String): Deferred<Response<Respuesta>>
+
+    @FormUrlEncoded
     @POST("bar/{idbar}/puntos")
     fun savePuntos(@Path("idbar") idbar: Int,
                    @Field("idusuario") idusuario: Int,
